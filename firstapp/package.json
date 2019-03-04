@@ -1,8 +1,8 @@
 {
-  "name": "nodemaximum",
+  "name": "firstapp",
   "version": "1.0.0",
   "description": "NodeJS Guide",
-  "main": "app.js",
+  "main": "./app.js",
   "scripts": {
     "start": "nodemon app.js",
     "debug": "nodemon app.js --inspect",
@@ -12,9 +12,5 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.18.10"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4"
   }
 }
