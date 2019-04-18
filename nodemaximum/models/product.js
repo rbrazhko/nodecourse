@@ -28,6 +28,7 @@ class Product {
   save() {
     // fs.createReadStream(); - for big files
 
+    this.id = Math.random().toString();
     getProductsFromFile((products) => {
       products.push(this);
       fs.writeFile(savedProductsPath, JSON.stringify(products), (err) => {
@@ -41,6 +42,14 @@ class Product {
 
   static fetchAll(callback) {
     getProductsFromFile(callback);
+  }
+
+  static findById(id, callback) {
+    getProductsFromFile((products) => {
+      const product = products.find(p => p.id === id);
+
+      callback(product);
+    })
   }
 }
 

@@ -1,4 +1,5 @@
 const Product = require('../models/product');
+const Cart = require('../models/cart');
 
 exports.getProducts = (req, res, next) => { // Middleware
 //     next(); // Allows the request to continue in the next middleware in line
@@ -16,6 +17,16 @@ exports.getProducts = (req, res, next) => { // Middleware
         path: '/shop/product-list'
       }
     );
+  });
+};
+
+exports.getProduct = (req, res, next) => {
+  const prodId = req.params.productId; // parse :productId from route
+  Product.findById(prodId, product => {
+    res.render('shop/product-detail', {
+      pageTitle: product.title,
+      product: product
+    });
   });
 };
 
@@ -40,6 +51,14 @@ exports.getCart = (req, res, next) => {
       pageTitle: 'Cart'
     }
   );
+};
+
+exports.postCart = (req, res, next) => {
+  const prodId = req.body.productId;
+  Product.findById(prodId, (product) => {
+    Cart.addProduct(product.id, product.price);
+  });
+  res.redirect('/cart');
 };
 
 exports.getOrders = (req, res, next) => {
