@@ -1,15 +1,23 @@
-const path = require('path');
-
 const express = require('express');
+
+const shopController = require('../controllers/shop');
 
 const router = express.Router();
 
-router.get('/', (req, res, next) => { // Middleware
-    console.log('Another middleware!');
-//     next(); // Allows the request to continue in the next middleware in line
-//     res.send(`<h1> Hello from express!!! </h1>`); // At the last middleware there must be res.send() instead of next()
+router.get('/', shopController.getIndex);
 
-    res.sendFile(path.join(__dirname, '../', 'views', 'shop.html'));
-});
+router.get('/products', shopController.getProducts);
+
+// router.get('/products/delete'); // MUST be before dynamic segment route :productId
+
+router.get('/products/:productId', shopController.getProduct);
+
+router.get('/cart', shopController.getCart);
+
+router.post('/cart', shopController.postCart);
+
+router.get('/orders', shopController.getOrders);
+
+router.get('/checkout', shopController.getCheckout);
 
 module.exports = router;

@@ -1,0 +1,42 @@
+.form-control {
+    margin: 1rem 0;
+}
+
+.form-control label,
+.form-control input,
+.form-control textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.25rem;
+}
+
+.form-control input,
+.form-control textarea {
+    border: 1px solid #c2a7ff;
+    font: inherit;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+    outline-color: #777aaa;
+}
+
+/*button {*/
+    /*border: 1px solid #bd42ff;*/
+    /*font: inherit;*/
+    /*background: white;*/
+    /*color: #bd42ff;*/
+    /*-webkit-border-radius: 3px;*/
+    /*-moz-border-radius: 3px;*/
+    /*border-radius: 3px;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*button:hover,*/
+/*button:active {*/
+    /*background-color: purple;*/
+    /*color: white;*/
+/*}*/
